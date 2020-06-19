@@ -1,33 +1,20 @@
-import React from 'react';
+import React from "react"
+import productsData from "./vschoolProducts"
+import Product from './Product';
 import './App.css';
 
 function App() {
-  let hours = new Date(2020, 6, 15, 20).getHours();
-  let timeOfDay;
-  
-  const styles = {
-    color: '#ffac00',
-    backgroundColor: '#FF2d00',
-    width: 300,
-    display: 'flex',
-    justifyContent: 'center',
-}
-
-  if (hours < 12) {
-    timeOfDay = 'morning'
-    styles.color = '#ffac00'
-  } else if (hours >= 12 && hours < 17) {
-    timeOfDay = 'afternoon'
-    styles.color = 'blue'
-  } else {
-    timeOfDay = 'night'
-    styles.color = 'darkBlue'
-  }
-
+      let productComponents = productsData.map(product => {
+            return (
+                  <Product key={product.id} name={product.name} price={product.price} description={product.description}/>
+            )
+      })
 
   return (
-  <h1 style={styles}>Good {timeOfDay}!</h1>
+    <div className='products'>
+        {productComponents}
+    </div>
   )
 }
 
-export default App;
+export default App
