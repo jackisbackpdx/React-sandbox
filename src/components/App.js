@@ -1,20 +1,16 @@
 import React from "react"
-import productsData from "./vschoolProducts"
-import Product from './Product';
+import TodoData from "./todosData";
+import Todo from './Todo';
 import './App.css';
 
-function App() {
-      let productComponents = productsData.map(product => {
+class App extends React.Component {
+      render() {
             return (
-                  <Product key={product.id} name={product.name} price={product.price} description={product.description}/>
+                  <div>
+                        <h1>Code goes here</h1>
+                  </div>
             )
-      })
-
-  return (
-    <div className='products'>
-        {productComponents}
-    </div>
-  )
+      }
 }
 
 export default App
